@@ -2,7 +2,7 @@
 console.log("working");
 
 // Create the map object with a center and zoom level.
-let map = L.map('mapid').setView([34.0522, -118.2437], 14);
+let map = L.map('mapid').setView([41.850033, -87.6500523], 5);
 
 // Get data from cities.js
 let cityData = cities;
@@ -11,7 +11,10 @@ let cityData = cities;
 cityData.forEach(function(city) {
     console.log(city)
     L.circleMarker(city.location, {
-        radius: city.population/100000
+        color: '#ff9900',
+        fillColor: '#ff9900',
+        fillOpacity: 0.1,
+        radius: city.population/200000
     })
     .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
     .addTo(map);
